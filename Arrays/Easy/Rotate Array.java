@@ -70,31 +70,21 @@ class GFG
 
 // } Driver Code Ends
 
-
+//arr[(i+k)]%n=arr[i] gives cyclic way shifting
 //User function Template for Java
 
 class Solution
 {
     //Function to rotate an array by d elements in counter-clockwise direction. 
     static void rotateArr(int arr[], int d, int n)
-    {
-        // add your code here
-        int i;
-        int[] b=new int[d];
-    if(d>=n) 
-         d=d%n;
+    if(d>n)
+d=d%n;
+int a[d];
+for(int i=0;i<d;i++)
+a[i]=arr[i];
+for(int i=0;i<n;i++)
+if(i<n-d)
+arr[i]=arr[i+d];
+else
+arr[i]=a[i-n+d];
 
-    for(i=0;i<d;i++){
-        b[i]=arr[i];
-    }
-    int j=0;
-    for(i=d;i<n;i++){
-        arr[j++]=arr[i];
-    }
-    int k=0;
-    for(i=j;i<n;i++){
-        arr[i]=b[k];
-        k++;
-    }
-    }
-}
